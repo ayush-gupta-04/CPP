@@ -1,3 +1,5 @@
+-----
+
 # C++ STL: The `std::set` Container
 
 The `std::set` is an associative container that stores elements that are **unique** (no duplicates) and **sorted** (ascending order by default). It is implemented using Self-Balancing Binary Search Trees (usually Red-Black Trees).
@@ -150,3 +152,94 @@ set<int, greater<int>> st_desc;
   * **Lower/Upper Bound:** $O(\log N)$
 
 -----
+
+-----
+
+## Appendix: Original Raw Notes
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+#ifndef ONLINE_JUDGE
+freopen("input.txt" , "r",stdin);
+freopen("output.txt" , "w",stdout);
+#endif
+
+    // declaring set.
+    set<int> st;               // empty one.
+    set<int> st1 = {1,2,3};    // having initial elements.
+
+
+    // insert elements .
+    st.inser(1);
+    st.insert(5);
+    st.emplace(4);    // a bit faster than insert().
+
+
+    // printing the set.
+    for(int it : st1){
+        cout << it << " ";
+    }
+
+    // erasing elements.
+
+    st.erase(st.begin());     // st.erase(iterator).
+    st.erase(st.begin() , st.begin() + 2);     // st.erase(startIterator , endIterator).
+    st.erase(3);         // st.erase(key).
+
+
+
+    // finding elements.
+    auto it = st.find(2);
+    // Returns iterator to x if found
+    // Returns st.end() otherwise
+
+
+
+    // counting  the elements.
+    // best to check if element exist or not.
+    st.count(2);
+    // return 1 -> if 2 exist.
+    // return 0 -> if 2 not exist.
+
+
+    //return the size of the set.
+    st.size();
+
+
+
+    // clear the whole set.
+    st.clear();
+
+
+
+
+    // Order-Based Queries (Very important!)
+
+    // 1. lower_bound(x)
+    //    -> Returns iterator to first element ≥ x
+    //    -> if not then returns st.end().
+    auto it = st.lower_bound(x);
+
+
+    // 1. upper_bound(x)
+    //    -> Returns iterator to first element > x
+    //    -> if not then returns st.end().
+    auto it = st.upper_bound(x);
+
+
+
+    // for descending order set.
+    set<int, greater<int>> st_desc;
+
+
+
+
+    
+    return 0;
+}
+```
+
+**Would you like me to format any other raw code snippets for you?**
