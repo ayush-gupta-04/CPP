@@ -81,6 +81,7 @@ Since keys are sorted, we can use binary search logic:
   * **Implementation:** Hash Table.
   * **Time Complexity:** $O(1)$ Average, $O(N)$ Worst Case (collisions).
   * **Missing Features:** No `lower_bound` or `upper_bound`.
+  * **Keys : ** Keys of unordered map can only be single element .. it cannot have pair<int,int> as keys.
 
 <!-- end list -->
 
