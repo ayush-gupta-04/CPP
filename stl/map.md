@@ -10,11 +10,11 @@ Maps are associative containers that store elements as **Key-Value Pairs** (`{ke
 
 #### **Theory & Internals**
 
-  * **Structure:** Stores `{key, value}` pairs.
-  * **Ordering:** Keys are **sorted** (ascending by default).
-  * **Uniqueness:** Keys are **unique**.
-  * **Implementation:** Self-Balancing BST (Red-Black Tree).
-  * **Time Complexity:** $O(\log N)$ for almost all operations.
+  * Stores `{key, value}` pairs.
+  * Keys are **sorted** (ascending by default).
+  * Keys are **unique**.
+  * Self-Balancing BST (Red-Black Tree).
+  * $O(\log N)$ for almost all operations.
 
 #### **Access & Insertion (Crucial for CP)**
 
@@ -76,14 +76,11 @@ Since keys are sorted, we can use binary search logic:
 ### 2\. `std::unordered_map` (Hash Map)
 
 #### **Theory & Internals**
-
-  * **Ordering:** None (Random/Undefined).
-  * **Implementation:** Hash Table.
-  * **Time Complexity:** $O(1)$ Average, $O(N)$ Worst Case (collisions).
-  * **Missing Features:** No `lower_bound` or `upper_bound`.
-  * **Keys:** Keys of unordered map can only be single element .. it cannot have pair<int,int> as keys.
-
-<!-- end list -->
+  * Keys are Random Ordered.
+  * Hash Table implementation.
+  * $O(1)$ Average, $O(N)$ Worst Case (collisions).
+  * No `lower_bound` or `upper_bound`.
+  * Keys of unordered map can only be single element .. it cannot have pair<int,int> as keys.
 
 ```cpp
 unordered_map<int, int> mpp;
@@ -92,6 +89,26 @@ unordered_map<int, int> mpp;
 mpp[2] = 5; 
 mpp.insert({3, 10});
 ```
+
+### 3\. `multimap`
+#### **Theory & Internals**
+  * Stores `{key, value}` pairs.
+  * Keys are **sorted** (ascending by default).
+  * Keys are **not unique**.
+  * Self-Balancing BST (Red-Black Tree).
+  * $O(\log N)$ for almost all operations.
+  * Can use `lower_bound` and `upper_bound` functions.
+
+```cpp
+multimap<int, int> mpp;
+
+// Syntax is identical to map for insert/find/erase
+mpp[2] = 5; 
+mpp.insert({3, 10});
+```
+<!-- end list -->
+
+
 
 -----
 
